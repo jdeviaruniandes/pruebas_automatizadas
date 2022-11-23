@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import { expect } from "chai";
 
 describe("Admin create new post", () => {
   it("Como usuario administrador creo un Tag con description", (feature = "tags") => {
@@ -62,9 +61,7 @@ describe("Admin create new post", () => {
     cy.get("#tag-name").clear().type(title);
     cy.get("#tag-description").clear().type(description);
     cy.wait(3000);
-    cy.screenshot(
-      `images/cypress/${feature}/create_tag_to_delete`
-    );
+    cy.screenshot(`images/cypress/${feature}/create_tag_to_delete`);
 
     cy.get("button.gh-btn.gh-btn-primary.gh-btn-icon.ember-view").click();
     cy.wait(3000);
@@ -80,9 +77,7 @@ describe("Admin create new post", () => {
 
     cy.get("button.gh-btn.gh-btn-red.gh-btn-icon").click();
     cy.wait(1000);
-    cy.screenshot(
-      `images/cypress/${feature}/tag_delete_modal`
-    );
+    cy.screenshot(`images/cypress/${feature}/tag_delete_modal`);
     cy.once("uncaught:exception", () => false);
     cy.get("button.gh-btn.gh-btn-red.gh-btn-icon.ember-view").click();
     cy.wait(3000);

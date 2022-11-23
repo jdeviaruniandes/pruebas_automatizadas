@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import { expect } from "chai";
 
 describe("Admin create new post", (feature = "post") => {
   it("Como usuario administrador creo un post con un titulo y descripción", () => {
@@ -22,9 +21,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("button.gh-btn.gh-btn-black.gh-btn-large").click();
     cy.get("button.gh-btn.gh-btn-pulse").click();
     cy.wait(3000);
-    cy.screenshot(
-      `images/cypress/${feature}/create_post_success`
-    );
+    cy.screenshot(`images/cypress/${feature}/create_post_success`);
 
     let titleUrl = title.replaceAll(" ", "-").toLowerCase();
     cy.visit(`http://uniandes.ingenio.com.co:2368/${titleUrl}/`);
@@ -44,9 +41,7 @@ describe("Admin create new post", (feature = "post") => {
       "http://uniandes.ingenio.com.co:2368/ghost/#/posts?type=published"
     );
     cy.wait(3000);
-    cy.screenshot(
-      `images/cypress/${feature}/published_posts_list`
-    );
+    cy.screenshot(`images/cypress/${feature}/published_posts_list`);
     cy.get("h3.gh-content-entry-title").first().click();
     cy.wait(3000);
     cy.screenshot(`images/cypress/${feature}/edit_posts`);
