@@ -1,0 +1,6 @@
+node_modules
+reports
+.kraken
+package-lock.json
+.idea
+.DS_Store
