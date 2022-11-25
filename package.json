@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mockaroo": "^0.1.7"
   },
   "scripts": {
     "cypress": "./node_modules/.bin/cypress open",

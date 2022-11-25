@@ -26,6 +26,8 @@
 
 import {faker} from "@faker-js/faker";
 
+
+
 Cypress.Commands.add(
     "goIntoSettings",
     (settings, feature = "general") => {
@@ -33,9 +35,9 @@ Cypress.Commands.add(
         cy.get('.gh-nav-bottom a[href="#/settings/"]').click();
         cy.get('.gh-main a[href="#/settings/' + settings + '/"]').click();
         cy.wait(1000);
-        cy.screenshot(
-            `images/cypress/${feature}/navigate_ghost_settings_${settings}`
-        );
+        // cy.screenshot(
+        //     `images/cypress/${feature}/navigate_ghost_settings_${settings}`
+        // );
     }
 );
 
@@ -54,14 +56,14 @@ Cypress.Commands.add(
 
         cy.visit(endpoint);
         cy.wait(1000);
-        cy.screenshot(
-            `images/cypress/${feature}/navigate_ghost_admin`
-        );
+        // cy.screenshot(
+        //     `images/cypress/${feature}/navigate_ghost_admin`
+        // );
         cy.get("input.email").type(username);
         cy.get("input.password").type(password);
         cy.get("button.login").click(); // Click on button
         cy.wait(1000);
-        cy.screenshot(`images/cypress/${feature}/login_admin`);
+        // cy.screenshot(`images/cypress/${feature}/login_admin`);
     }
 );
 
@@ -72,6 +74,6 @@ Cypress.Commands.add(
 
         cy.visit(endpoint);
         cy.wait(1000);
-        cy.screenshot(`images/cypress/${feature}/new_site`);
+        // cy.screenshot(`images/cypress/${feature}/new_site`);
     }
 );
