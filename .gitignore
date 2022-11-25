@@ -4,3 +4,5 @@ reports
 package-lock.json
 .idea
 .DS_Store
+images
+screenshots
