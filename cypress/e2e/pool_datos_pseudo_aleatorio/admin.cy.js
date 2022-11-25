@@ -304,7 +304,7 @@ describe('Admin create and delete elements in configuration', () => {
         cy.goAdminAndLogin(profile_name)
         cy.goIntoSettings('navigation', profile_name)
 
-        cy.get('#secondary-navigation .gh-blognav-item:not(.gh-blognav-item--sortable) input[placeholder="Label"]').clear().type(company.description)
+        cy.get('#secondary-navigation .gh-blognav-item:not(.gh-blognav-item--sortable) input[placeholder="Label"]').clear().invoke('val', company.description).type('.')
         cy.get('#secondary-navigation .gh-blognav-item:not(.gh-blognav-item--sortable) input:not([placeholder="Label"])').clear().type(company.url)
 
         cy.saveSettings()
