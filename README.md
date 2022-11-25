@@ -16,6 +16,8 @@
     - Nombre
     - Bio
     - Contraseña
+    - Página web
+    - Locación
 2. Cambios asociados al website:
    - Cambiar el titulo
    - Agregar y eliminar un menú
