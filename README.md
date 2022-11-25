@@ -1,3 +1,16 @@
+## Issues:
+1. Se puede crear una locación númerica, se espera que sea al menos letras.
+2. Cuando se agrega una locación con más de 200 caracteres sale el error "Location is too long" pero no se retroalimenta el número máximo de caracteres. 
+3. Cuando se intenta agregar una contraseña con solo números, se obtiene el error "Sorry, you cannot use an insecure password" pero no se retroalimenta al usuario qué es una contraseña insegura. 
+4. Cuando se intenta agregar un nombre de más de 200 caracteres se obtiene el error "Name is too long" pero no se retroalimenta el número máximo de caracteres. 
+5. Cuando intento cambiar el nombre del blog por uno mayor a 200 caracteres se cambia el header de la página así haya salido el error de que el nombre es muy alrgo generando confusión. 
+
+## Descripción de generación de datos:
+1. pool de datos a-priori: Usando el json generado del mockaroo.
+2. pool de datos (pseudo): Usando la api de mockaroo a un esquema creado.
+3. aleatorio dinámico: Usando la librería faker.js con sus métodos.
+
+
 ## Descripción de las funcionalidades de GHOST que se incluyen en las pruebas de esta semana.
 1. Cambios asociados al perfil como:
     - Nombre
