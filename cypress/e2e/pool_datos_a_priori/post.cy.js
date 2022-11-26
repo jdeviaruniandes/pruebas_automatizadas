@@ -81,7 +81,6 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
   });
 
   it("Como usuario administrador ingreso un titulo vacio y una description 10 lineas e intento publicar post", () => {
-    // Isue: permite publicar post sin titulo
     const description = get_data("description");
 
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/posts/");
@@ -99,7 +98,6 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
   });
 
   it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por uno mayor a 255 caracteres ", () => {
-    // Isue permite editar texto con nombre mayor a 255 y se daña el diseño
     let name = get_data("long_text");
     name = name.slice(0, 256);
 
@@ -117,7 +115,6 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
   });
 
   it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por un palabra menor a 255 caracteres ", () => {
-    // Isue permite editar texto con nombre mayor a 255 y se daña el diseño
     const name = get_data("title");
 
     cy.visit(

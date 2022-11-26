@@ -214,7 +214,6 @@ describe("Admin create new post", (feature = "post") => {
   });
 
   it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por un palabra menor a 255 caracteres ", () => {
-    // Isue permite editar texto con nombre mayor a 255 y se daña el diseño
     const name = faker.random.word();
 
     cy.visit(

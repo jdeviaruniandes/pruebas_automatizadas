@@ -86,7 +86,6 @@ describe("Validacion de datos formularios de tags", () => {
   });
 
   it("Como usuario administrador creo un Tag con titulo exactamente igual a 191 caracteres", async () => {
-    //Isue El titulo no se puede ver completo ni recortar en otra linea ni aparecen puntos indicando que continua
     let title = await get_data("long_text");
     title = title.slice(0, 191);
     const description = await get_data("description");
