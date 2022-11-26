@@ -126,18 +126,12 @@ describe('Admin create and delete elements in configuration', () => {
         cy.wait('@saveSettings')
         cy.goWebsite(profile_name)
 
-        cy.get('head meta[name=description]').should(
+        cy.get('head meta[name="twitter:description"]').should(
             'have.attr',
             'content',
             company.short_description,
         )
-
-        cy.get('head meta[property="twitter:description"]').should(
-            'have.attr',
-            'content',
-            company.short_description,
-        )
-        cy.get('head meta[property="twitter:title"]').should(
+        cy.get('head meta[name="twitter:title"]').should(
             'have.attr',
             'content',
             newTitle,
