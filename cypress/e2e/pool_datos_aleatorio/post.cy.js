@@ -193,7 +193,7 @@ describe("Admin create new post", (feature = "post") => {
       .click();
     cy.wait(3000);
 
-    cy.get("div.single-content p").should("have.text", description);
+    cy.get("div.single-content p").should("include.text", description);
   });
 
   it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por uno mayor a 255 caracteres ", () => {
