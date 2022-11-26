@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-const aPrioriData = require("./apriori_post.json");
+const aPrioriData = require("../../../datastore/post.json");
 const seed = 2021;
 
 function get_data(type) {
