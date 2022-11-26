@@ -1,6 +1,6 @@
 import {faker} from "@faker-js/faker";
 
-const aPrioriData = require("./apriori_profile.json"); // test.js:6
+const aPrioriData = require("../../../datastore/profile.json"); // test.js:6
 
 function get_data(type) {
   const randomData = aPrioriData[Math.floor(Math.random() * aPrioriData.length)];

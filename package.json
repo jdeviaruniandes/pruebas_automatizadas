@@ -3,8 +3,8 @@
     "mockaroo": "^0.1.7"
   },
   "scripts": {
-    "cypress": "./node_modules/.bin/cypress open",
-    "test": "./node_modules/.bin/cypress open --browser chrome --e2e"
+    "cypress": "cypress open",
+    "test": "cypress open --browser chrome --e2e"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
