@@ -29,6 +29,14 @@ describe("Admin create/cancel/edit page", () => {
     cy.get("button.gh-publish-trigger").click();
     cy.get("button.gh-btn.gh-btn-black.gh-btn-large").click();
     cy.get("button.gh-btn.gh-btn-pulse").click();
+    cy.wait(3000);
+
+    let titleUrl = title_short.replaceAll(" ", "-").toLowerCase();
+    cy.visit(`http://uniandes.ingenio.com.co:2368/${titleUrl}/`);
+    cy.wait(3000);
+
+    cy.get("h1.single-title").should("have.text", title_short);
+    cy.get("div.single-content p").should("have.text", description);
   });
 
 

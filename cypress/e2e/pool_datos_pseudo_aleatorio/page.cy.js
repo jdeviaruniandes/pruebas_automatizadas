@@ -44,11 +44,11 @@ describe("Admin create/cancel/edit page", () => {
     cy.get("button.gh-btn.gh-btn-pulse").click();
     cy.wait(3000);
 
-    let titleUrl = title.replaceAll(" ", "-").toLowerCase();
+    let titleUrl = title_short.replaceAll(" ", "-").toLowerCase();
     cy.visit(`http://uniandes.ingenio.com.co:2368/${titleUrl}/`);
     cy.wait(3000);
 
-    cy.get("h1.single-title").should("have.text", title);
+    cy.get("h1.single-title").should("have.text", title_short);
     cy.get("div.single-content p").should("have.text", description);
   });
 
