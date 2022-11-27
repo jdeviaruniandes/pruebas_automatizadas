@@ -113,7 +113,7 @@ describe("Validacion de datos formularios de tags", () => {
 
   it("E119 Como usuario administrador creo un Tag con una descripcion de 500 caracteres", async () => {
     const title = await get_data("title");
-    let description = await get_data("description");
+    let description = await get_data("long_text");
     description = description.slice(0, 500);
 
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/tags");
