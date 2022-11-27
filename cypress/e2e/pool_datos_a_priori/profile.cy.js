@@ -9,7 +9,7 @@ function get_data(type) {
 
 describe('Admin create and delete elements in configuration', () => {
 
-  it('Como usuario administrador voy perfil e intento cambiar el nombre, guardo cambios y verifico que se haya guardado', () => {
+  it(' E27 Como usuario administrador voy perfil e intento cambiar el nombre, guardo cambios y verifico que se haya guardado', () => {
 
     const newName = get_data("user_name")
 
@@ -21,7 +21,7 @@ describe('Admin create and delete elements in configuration', () => {
     cy.get("h2.gh-canvas-title").contains(newName);
   })
 
-  it('Como usuario administrador voy perfil e intento cambiar el nombre, actualizo sin guardar cambios', () => {
+  it('E28 Como usuario administrador voy perfil e intento cambiar el nombre, actualizo sin guardar cambios', () => {
 
     const newName = get_data("user_name")
     cy.goAdminAndLogin()
@@ -35,7 +35,7 @@ describe('Admin create and delete elements in configuration', () => {
     cy.get("h2.gh-canvas-title").contains("johnattan devia");
   })
 
-    it('Como usuario administrador me logeo e intento agregar una bio de menos de 200 caracteres', () => {
+    it('E29 Como usuario administrador me logeo e intento agregar una bio de menos de 200 caracteres', () => {
 
     const newBio = get_data("bio_short")
     cy.goAdminAndLogin()
@@ -48,7 +48,7 @@ describe('Admin create and delete elements in configuration', () => {
     cy.get("#user-bio").contains(newBio);
   })
   
-    it('Como usuario administrador me logeo e intento agregar una bio de más de 200 caracteres', () => {
+    it('E30 Como usuario administrador me logeo e intento agregar una bio de más de 200 caracteres', () => {
 
     const newBio = get_data("bio_large")
     cy.goAdminAndLogin()
@@ -61,7 +61,7 @@ describe('Admin create and delete elements in configuration', () => {
         expect(ele.text()).equals("Bio is too long")
     })
   })
-  it('Como usuario administrador me logeo e intento cambiar la contraseña ingresando una inferior a 10 digitos', () => {
+  it('E31 Como usuario administrador me logeo e intento cambiar la contraseña ingresando una inferior a 10 digitos', () => {
 
     const shortPass = get_data("password")
     cy.goAdminAndLogin()
@@ -79,7 +79,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-  it('Como usuario administrador me logeo e intento cambiar el email ingresando un dato erroneo', () => {
+  it('E32 Como usuario administrador me logeo e intento cambiar el email ingresando un dato erroneo', () => {
     const newEmail = get_data("user_name")
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()
@@ -93,7 +93,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
   
-  it('Como usuario administrador me logeo e intento cambiar la locación ingresando un dato de más de 200 caracteres', () => {
+  it('E33 Como usuario administrador me logeo e intento cambiar la locación ingresando un dato de más de 200 caracteres', () => {
     const newLocation = get_data("bio_large")
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()
@@ -107,7 +107,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-    it('Como usuario administrador me logeo e intento cambiar la contraseña ingresando una numerica de 10 digitos', () => {
+    it('E34 Como usuario administrador me logeo e intento cambiar la contraseña ingresando una numerica de 10 digitos', () => {
 
     const numberPass = get_data("number")
     cy.goAdminAndLogin()
@@ -123,7 +123,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-  it('Como usuario administrador me logeo e intento cambiar el website con un valor no válido', () => {
+  it('E35 Como usuario administrador me logeo e intento cambiar el website con un valor no válido', () => {
 
     const newWebSite = get_data("user_name")
     cy.goAdminAndLogin()
@@ -137,7 +137,7 @@ describe('Admin create and delete elements in configuration', () => {
       }
     })
   })
-  it('Como usuario administrador voy perfil e intento cambiar el nombre de más de 200 caracteres y verifico que salga error', () => {
+  it('E36 Como usuario administrador voy perfil e intento cambiar el nombre de más de 200 caracteres y verifico que salga error', () => {
     const newName = get_data("bio_large")
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()

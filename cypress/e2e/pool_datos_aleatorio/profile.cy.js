@@ -3,7 +3,7 @@ import {faker} from "@faker-js/faker";
 
 describe('Admin create and delete elements in configuration', () => {
 
-  it('Como usuario administrador voy perfil e intento cambiar el nombre, guardo cambios y verifico que se haya guardado', () => {
+  it('E68 Como usuario administrador voy perfil e intento cambiar el nombre, guardo cambios y verifico que se haya guardado', () => {
 
     const newName = faker.lorem.word()
 
@@ -15,7 +15,7 @@ describe('Admin create and delete elements in configuration', () => {
     cy.get("h2.gh-canvas-title").contains(newName);
   })
 
-  it('Como usuario administrador voy perfil e intento cambiar el nombre, actualizo sin guardar cambios', () => {
+  it('E69 Como usuario administrador voy perfil e intento cambiar el nombre, actualizo sin guardar cambios', () => {
 
     const newName = faker.lorem.word()
     cy.goAdminAndLogin()
@@ -29,7 +29,7 @@ describe('Admin create and delete elements in configuration', () => {
     cy.get("h2.gh-canvas-title").contains("johnattan devia");
   })
 
-    it('Como usuario administrador me logeo e intento agregar una bio de menos de 200 caracteres', () => {
+    it('E70 Como usuario administrador me logeo e intento agregar una bio de menos de 200 caracteres', () => {
 
     const newBio = faker.lorem.words(10)
     cy.goAdminAndLogin()
@@ -42,7 +42,7 @@ describe('Admin create and delete elements in configuration', () => {
     cy.get("#user-bio").contains(newBio);
   })
   
-    it('Como usuario administrador me logeo e intento agregar una bio de más de 200 caracteres', () => {
+    it('E71 Como usuario administrador me logeo e intento agregar una bio de más de 200 caracteres', () => {
 
     const newBio = faker.lorem.words(30)
     cy.goAdminAndLogin()
@@ -54,8 +54,8 @@ describe('Admin create and delete elements in configuration', () => {
       if ($ele.text() === "Bio is too long")
         expect(ele.text()).equals("Bio is too long")
     })
-  })
-  it('Como usuario administrador me logeo e intento cambiar la contraseña ingresando una inferior a 10 digitos', () => {
+  }) 
+  it('E72 Como usuario administrador me logeo e intento cambiar la contraseña ingresando una inferior a 10 digitos', () => {
 
     const shortPass = faker.word.adjective(5)
     cy.goAdminAndLogin()
@@ -73,7 +73,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-  it('Como usuario administrador me logeo e intento cambiar el email ingresando un dato erroneo', () => {
+  it('E73 Como usuario administrador me logeo e intento cambiar el email ingresando un dato erroneo', () => {
     const newEmail = faker.lorem.word()
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()
@@ -88,7 +88,7 @@ describe('Admin create and delete elements in configuration', () => {
   })
 
 
-  it('Como usuario administrador me logeo e intento cambiar la locación ingresando un dato de más de 200 caracteres', () => {
+  it('E74 Como usuario administrador me logeo e intento cambiar la locación ingresando un dato de más de 200 caracteres', () => {
     const newLocation = faker.lorem.words(30)
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()
@@ -102,7 +102,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-    it('Como usuario administrador me logeo e intento cambiar la contraseña ingresando una numerica de 10 digitos', () => {
+    it('E75 Como usuario administrador me logeo e intento cambiar la contraseña ingresando una numerica de 10 digitos', () => {
 
     const numberPass = faker.datatype.number({min:1000000000, max:10000000000})
     cy.goAdminAndLogin()
@@ -118,7 +118,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-  it('Como usuario administrador me logeo e intento cambiar el website con un valor no válido', () => {
+  it('E76 Como usuario administrador me logeo e intento cambiar el website con un valor no válido', () => {
     const newName = faker.lorem.word()
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()
@@ -132,7 +132,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
   })
 
-  it('Como usuario administrador voy perfil e intento cambiar el nombre de más de 200 caracteres y verifico que salga error', () => {
+  it('E77 Como usuario administrador voy perfil e intento cambiar el nombre de más de 200 caracteres y verifico que salga error', () => {
     const newName = faker.lorem.words(30)
     cy.goAdminAndLogin()
     cy.get('div.gh-user-avatar').click()

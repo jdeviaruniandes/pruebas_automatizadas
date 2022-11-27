@@ -21,7 +21,7 @@ async function get_data(type) {
 
 describe('Admin create and delete elements in configuration', () => {
 
-    it('Como usuario administrador voy perfil e intento cambiar el nombre, guardo cambios y verifico que se haya guardado', async () => {
+    it('E106 Como usuario administrador voy perfil e intento cambiar el nombre, guardo cambios y verifico que se haya guardado', async () => {
 
         const newName = await get_data("user_name")
         cy.log(newName)
@@ -34,7 +34,7 @@ describe('Admin create and delete elements in configuration', () => {
     })
 
 
-    it('Como usuario administrador voy perfil e intento cambiar el nombre, actualizo sin guardar cambios', async () => {
+    it('E107 Como usuario administrador voy perfil e intento cambiar el nombre, actualizo sin guardar cambios', async () => {
 
         const newName = await get_data("user_name")
         cy.goAdminAndLogin()
@@ -48,7 +48,7 @@ describe('Admin create and delete elements in configuration', () => {
         cy.get("h2.gh-canvas-title").contains("johnattan devia");
     })
 
-    it('Como usuario administrador me logeo e intento agregar una bio de menos de 200 caracteres', async () => {
+    it('E108 Como usuario administrador me logeo e intento agregar una bio de menos de 200 caracteres', async () => {
 
         const newBio = await get_data("bio_short")
         cy.goAdminAndLogin()
@@ -61,7 +61,7 @@ describe('Admin create and delete elements in configuration', () => {
         cy.get("#user-bio").contains(newBio);
     })
 
-    it('Como usuario administrador me logeo e intento agregar una bio de más de 200 caracteres', async () => {
+    it('E109 Como usuario administrador me logeo e intento agregar una bio de más de 200 caracteres', async () => {
 
         const newBio = await get_data("bio_large")
         cy.goAdminAndLogin()
@@ -74,7 +74,7 @@ describe('Admin create and delete elements in configuration', () => {
                 expect(ele.text()).equals("Bio is too long")
         })
     })
-    it('Como usuario administrador me logeo e intento cambiar la contraseña ingresando una inferior a 10 digitos', async () => {
+    it('E110 Como usuario administrador me logeo e intento cambiar la contraseña ingresando una inferior a 10 digitos', async () => {
         let shortPass = await get_data("password")
         shortPass = shortPass.substring(1, 3)
         cy.goAdminAndLogin()
@@ -92,7 +92,7 @@ describe('Admin create and delete elements in configuration', () => {
         })
     })
 
-    it('Como usuario administrador me logeo e intento cambiar el email ingresando un dato erroneo', async () => {
+    it('E111 Como usuario administrador me logeo e intento cambiar el email ingresando un dato erroneo', async () => {
         const newEmail = await get_data("user_name")
         cy.goAdminAndLogin()
         cy.get('div.gh-user-avatar').click()
@@ -105,7 +105,7 @@ describe('Admin create and delete elements in configuration', () => {
             }
         })
     })
-    it('Como usuario administrador me logeo e intento cambiar la locación ingresando un dato de más de 200 caracteres', async () => {
+    it('E112 Como usuario administrador me logeo e intento cambiar la locación ingresando un dato de más de 200 caracteres', async () => {
         const newLocation = await get_data("bio_large")
         cy.goAdminAndLogin()
         cy.get('div.gh-user-avatar').click()
@@ -119,7 +119,7 @@ describe('Admin create and delete elements in configuration', () => {
         })
     })
 
-    it('Como usuario administrador me logeo e intento cambiar la contraseña ingresando una numerica de 10 digitos', async () => {
+    it('E113 Como usuario administrador me logeo e intento cambiar la contraseña ingresando una numerica de 10 digitos', async () => {
 
         const numberPass = await get_data("number")
         cy.goAdminAndLogin()
@@ -135,7 +135,7 @@ describe('Admin create and delete elements in configuration', () => {
         })
     })
 
-    it('Como usuario administrador me logeo e intento cambiar el website con un valor no válido', async () => {
+    it('E114 Como usuario administrador me logeo e intento cambiar el website con un valor no válido', async () => {
 
         const newWebSite = await get_data("user_name")
         cy.goAdminAndLogin()
@@ -149,7 +149,7 @@ describe('Admin create and delete elements in configuration', () => {
             }
         })
     })
-    it('Como usuario administrador voy perfil e intento cambiar el nombre de más de 200 caracteres y verifico que salga error', async () => {
+    it('E115 Como usuario administrador voy perfil e intento cambiar el nombre de más de 200 caracteres y verifico que salga error', async () => {
         const newName = await get_data("bio_large")
         cy.goAdminAndLogin()
         cy.get('div.gh-user-avatar').click()
