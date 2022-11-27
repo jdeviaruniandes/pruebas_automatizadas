@@ -1,4 +1,11 @@
-import { faker } from "@faker-js/faker";
+
+const aPrioriData = require("../../../datastore/page_newsletter.json"); 
+
+function get_data(type) {
+  const randomData = aPrioriData[Math.floor(Math.random() * aPrioriData.length)];
+  return randomData[type];
+}
+
 
 describe("Admin create/cancel/edit page", () => {
 
@@ -9,15 +16,15 @@ describe("Admin create/cancel/edit page", () => {
   });
 
   it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo menor a 255 caracteres, descripcion, publicar ahora mismo", () => {
-    const title = faker.name.jobTitle();
-    const description = faker.lorem.paragraph();
+    const title_short = get_data("title_short")
+    const description = get_data("description")
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
     cy.wait(3000);
     cy.get("a.ember-view.gh-btn.gh-btn-primary.view-actions-top-row")
       .contains("New page")
       .click();
       cy.wait(3000);
-    cy.get("textarea.gh-editor-title").type(title);
+    cy.get("textarea.gh-editor-title").type(title_short);
     cy.get("article.koenig-editor").type(description);
     cy.get("button.gh-publish-trigger").click();
     cy.get("button.gh-btn.gh-btn-black.gh-btn-large").click();
@@ -34,15 +41,15 @@ describe("Admin create/cancel/edit page", () => {
 
 
   it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo, descripcion y cancelar", () => {
-    const title = faker.name.jobTitle();
-    const description = faker.lorem.paragraph();
+    const title_short = get_data("title_short")
+    const description = get_data("description")
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
     cy.wait(3000);
     cy.get("a.ember-view.gh-btn.gh-btn-primary.view-actions-top-row")
       .contains("New page")
       .click();
       cy.wait(3000);
-    cy.get("textarea.gh-editor-title").type(title);
+    cy.get("textarea.gh-editor-title").type(title_short);
     cy.get("article.koenig-editor").type(description);
     cy.wait(5000)
     cy.reload()
@@ -52,8 +59,8 @@ describe("Admin create/cancel/edit page", () => {
 
 
   it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo mayor a 255 caracteres, descripcion, publicar ahora mismo", () => {
-    const title = faker.lorem.sentence(256);
-    const description = faker.lorem.paragraph();
+    const title_large = get_data("title_large")
+    const description = get_data("description")
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
     cy.wait(3000);
     cy.get("a.ember-view.gh-btn.gh-btn-primary.view-actions-top-row")
@@ -61,15 +68,15 @@ describe("Admin create/cancel/edit page", () => {
       .click();
       cy.wait(3000);
     cy.get("article.koenig-editor").type(description);
-    cy.get("textarea.gh-editor-title").type(title);
+    cy.get("textarea.gh-editor-title").type(title_large);
     cy.get("button.gh-publish-trigger").click();
   
   });
 
 
   it("Como usuario administrador me logeo e intento editar una pagina, insertar titulo menor a 255 caracteres y la publico", () => {
-    const title = faker.name.jobTitle();
-    const description = faker.lorem.paragraph();
+    const title_short = get_data("title_short")
+    const description = get_data("description")
     cy.visit(
       "http://uniandes.ingenio.com.co:2368/ghost/#/pages/"
     );
@@ -77,7 +84,7 @@ describe("Admin create/cancel/edit page", () => {
     cy.get("h3.gh-content-entry-title").first().click({ force: true });
     cy.wait(3000);
 
-    cy.get("textarea.gh-editor-title").clear().type(title);
+    cy.get("textarea.gh-editor-title").clear().type(title_short);
     cy.get("article.koenig-editor").clear().type(description);
     cy.get("button.gh-publish-trigger").click();
     cy.get("button.gh-btn.gh-btn-black.gh-btn-large").click();
@@ -86,8 +93,8 @@ describe("Admin create/cancel/edit page", () => {
 
 
   it("Como usuario administrador me logeo e intento editar una pagina, insertar titulo mayor a 255 caracteres y la publico", () => {
-    const title = faker.lorem.sentence(256);
-    const description = faker.lorem.paragraph();
+    const title_large = get_data("title_large")
+    const description = get_data("description")
     cy.visit(
       "http://uniandes.ingenio.com.co:2368/ghost/#/pages/"
     );
@@ -96,7 +103,7 @@ describe("Admin create/cancel/edit page", () => {
     cy.wait(3000);
 
     cy.get("article.koenig-editor").type(description);
-    cy.get("textarea.gh-editor-title").clear().type(title);
+    cy.get("textarea.gh-editor-title").clear().type(title_large);
     cy.get("button.gh-publish-trigger").click();
   });   
 
