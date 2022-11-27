@@ -148,7 +148,7 @@ describe("Admin create new post", () => {
     cy.get("h3.gh-tag-list-name").contains(title).should("exist");
   });
 
-  it.only("E83 Como usuario administrador creo un Tag con una descripcion de 500 caracteres", (feature = "tags") => {
+  it("E83 Como usuario administrador creo un Tag con una descripcion de 500 caracteres", (feature = "tags") => {
     const title = faker.lorem.sentence();
     const description = faker.random.alphaNumeric(500);
 
