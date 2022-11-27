@@ -15,7 +15,7 @@ describe('Admin add newsletter', () => {
     cy.wait(3000);
   });
 
-  it('Como usuario administrador me logeo e intento agregar boletin, indicar nombre menor a 191 caracteres,, decripción y crear', () => {
+  it('E11 Como usuario administrador me logeo e intento agregar boletin, indicar nombre menor a 191 caracteres,, decripción y crear', () => {
     const title_short = get_data("title_short")
     const description = get_data("description")
     cy.goIntoSettings('newsletters')
@@ -26,7 +26,7 @@ describe('Admin add newsletter', () => {
   })
 
 
-  it('Como usuario administrador me logeo e intento agregar boletin, indicar nombre, decripción y cancelar', () => {
+  it('E12 Como usuario administrador me logeo e intento agregar boletin, indicar nombre, decripción y cancelar', () => {
     const title_short = get_data("title_short")
     const description = get_data("description")
     cy.goIntoSettings('newsletters')
@@ -37,7 +37,7 @@ describe('Admin add newsletter', () => {
   })
 
 
-  it('Como usuario administrador me logeo e intento agregar boletin, indicar nombre mayor a 191 caracteres, decripción y crear', () => {
+  it('E13 Como usuario administrador me logeo e intento agregar boletin, indicar nombre mayor a 191 caracteres, decripción y crear', () => {
     const title_large = get_data("title_large")
     const description = get_data("description")
     cy.goIntoSettings('newsletters')
@@ -48,7 +48,7 @@ describe('Admin add newsletter', () => {
   })
 
 
-  it("Como usuario administrador me logeo e intento editar un newsletter, indicar nombre menor a 191 caracteres y lo publico", () => {
+  it("E14 Como usuario administrador me logeo e intento editar un newsletter, indicar nombre menor a 191 caracteres y lo publico", () => {
     const title_short = get_data("title_short")
     const description = get_data("description")
     cy.goIntoSettings('newsletters')
@@ -61,7 +61,7 @@ describe('Admin add newsletter', () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento editar un newsletter, indicar nombre mayor a 191 caracteres y lo publico", () => {
+  it("E15 Como usuario administrador me logeo e intento editar un newsletter, indicar nombre mayor a 191 caracteres y lo publico", () => {
     const title_large = get_data("title_large")
     const description = get_data("description")
     cy.goIntoSettings('newsletters')

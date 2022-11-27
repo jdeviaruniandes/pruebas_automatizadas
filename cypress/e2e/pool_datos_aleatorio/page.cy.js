@@ -8,7 +8,7 @@ describe("Admin create/cancel/edit page", () => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo menor a 255 caracteres, descripcion, publicar ahora mismo", () => {
+  it("E52 Como usuario administrador me logeo e intento crear una pagina, insertar titulo menor a 255 caracteres, descripcion, publicar ahora mismo", () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
@@ -33,7 +33,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo, descripcion y cancelar", () => {
+  it("E53 Como usuario administrador me logeo e intento crear una pagina, insertar titulo, descripcion y cancelar", () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
@@ -51,7 +51,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo mayor a 255 caracteres, descripcion, publicar ahora mismo", () => {
+  it("E54 Como usuario administrador me logeo e intento crear una pagina, insertar titulo mayor a 255 caracteres, descripcion, publicar ahora mismo", () => {
     const title = faker.lorem.sentence(256);
     const description = faker.lorem.paragraph();
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
@@ -67,7 +67,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento editar una pagina, insertar titulo menor a 255 caracteres y la publico", () => {
+  it("E55 Como usuario administrador me logeo e intento editar una pagina, insertar titulo menor a 255 caracteres y la publico", () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.visit(
@@ -85,7 +85,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento editar una pagina, insertar titulo mayor a 255 caracteres y la publico", () => {
+  it("E56 Como usuario administrador me logeo e intento editar una pagina, insertar titulo mayor a 255 caracteres y la publico", () => {
     const title = faker.lorem.sentence(256);
     const description = faker.lorem.paragraph();
     cy.visit(

@@ -15,7 +15,7 @@ describe("Admin create/cancel/edit page", () => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo menor a 255 caracteres, descripcion, publicar ahora mismo", () => {
+  it("E16 Como usuario administrador me logeo e intento crear una pagina, insertar titulo menor a 255 caracteres, descripcion, publicar ahora mismo", () => {
     const title_short = get_data("title_short")
     const description = get_data("description")
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
@@ -40,7 +40,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo, descripcion y cancelar", () => {
+  it("E17 Como usuario administrador me logeo e intento crear una pagina, insertar titulo, descripcion y cancelar", () => {
     const title_short = get_data("title_short")
     const description = get_data("description")
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
@@ -58,7 +58,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento crear una pagina, insertar titulo mayor a 255 caracteres, descripcion, publicar ahora mismo", () => {
+  it("E18 Como usuario administrador me logeo e intento crear una pagina, insertar titulo mayor a 255 caracteres, descripcion, publicar ahora mismo", () => {
     const title_large = get_data("title_large")
     const description = get_data("description")
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/pages/");
@@ -74,7 +74,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento editar una pagina, insertar titulo menor a 255 caracteres y la publico", () => {
+  it("E19 Como usuario administrador me logeo e intento editar una pagina, insertar titulo menor a 255 caracteres y la publico", () => {
     const title_short = get_data("title_short")
     const description = get_data("description")
     cy.visit(
@@ -92,7 +92,7 @@ describe("Admin create/cancel/edit page", () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento editar una pagina, insertar titulo mayor a 255 caracteres y la publico", () => {
+  it("E20 Como usuario administrador me logeo e intento editar una pagina, insertar titulo mayor a 255 caracteres y la publico", () => {
     const title_large = get_data("title_large")
     const description = get_data("description")
     cy.visit(

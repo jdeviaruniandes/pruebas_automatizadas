@@ -8,7 +8,7 @@ describe('Admin add newsletter', () => {
     cy.wait(3000);
   });
 
-  it('Como usuario administrador me logeo e intento agregar boletin, indicar nombre menor a 191 caracteres,, decripción y crear', () => {
+  it('E47 Como usuario administrador me logeo e intento agregar boletin, indicar nombre menor a 191 caracteres,, decripción y crear', () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.goIntoSettings('newsletters')
@@ -19,7 +19,7 @@ describe('Admin add newsletter', () => {
   })
 
 
-  it('Como usuario administrador me logeo e intento agregar boletin, indicar nombre, decripción y cancelar', () => {
+  it('E48 Como usuario administrador me logeo e intento agregar boletin, indicar nombre, decripción y cancelar', () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.goIntoSettings('newsletters')
@@ -30,7 +30,7 @@ describe('Admin add newsletter', () => {
   })
 
 
-  it('Como usuario administrador me logeo e intento agregar boletin, indicar nombre mayor a 191 caracteres, decripción y crear', () => {
+  it('E49 Como usuario administrador me logeo e intento agregar boletin, indicar nombre mayor a 191 caracteres, decripción y crear', () => {
     const title = faker.lorem.sentence(192);
     const description = faker.lorem.paragraph();
     cy.goIntoSettings('newsletters')
@@ -41,7 +41,7 @@ describe('Admin add newsletter', () => {
   })
 
 
-  it("Como usuario administrador me logeo e intento editar un newsletter, indicar nombre menor a 191 caracteres y lo publico", () => {
+  it("E50 Como usuario administrador me logeo e intento editar un newsletter, indicar nombre menor a 191 caracteres y lo publico", () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.goIntoSettings('newsletters')
@@ -54,7 +54,7 @@ describe('Admin add newsletter', () => {
   });
 
 
-  it("Como usuario administrador me logeo e intento editar un newsletter, indicar nombre mayor a 191 caracteres y lo publico", () => {
+  it("E51 Como usuario administrador me logeo e intento editar un newsletter, indicar nombre mayor a 191 caracteres y lo publico", () => {
     const title = faker.lorem.sentence(192);
     const description = faker.lorem.paragraph();
     cy.goIntoSettings('newsletters')
