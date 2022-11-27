@@ -8,7 +8,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador creo un post con un titulo y descripción con titulo menor a 255 caracteres", () => {
+  it("E57 Como usuario administrador creo un post con un titulo y descripción con titulo menor a 255 caracteres", () => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/posts/");
@@ -32,7 +32,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("div.single-content p").should("have.text", description);
   });
 
-  it("Como usuario administrador edito un post publicado con titulo menor a 255 caracteres", (feature = "post") => {
+  it("E58 Como usuario administrador edito un post publicado con titulo menor a 255 caracteres", (feature = "post") => {
     const title = faker.name.jobTitle();
     const description = faker.lorem.paragraph();
     cy.visit(
@@ -54,7 +54,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("div.single-content p").should("have.text", description);
   });
 
-  it("Como usuario administrador creo un post con un titulo mayor a 255 caracteres", () => {
+  it("E59 Como usuario administrador creo un post con un titulo mayor a 255 caracteres", () => {
     const title = faker.lorem.sentence(100);
     const description = faker.lorem.paragraph(10);
 
@@ -69,7 +69,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("button.gh-publish-trigger").should("not.exist");
   });
 
-  it("Como usuario administrador ingreso un titulo menor a 255, luego uno de 256 caracteres e intento publicar post", () => {
+  it("E60 Como usuario administrador ingreso un titulo menor a 255, luego uno de 256 caracteres e intento publicar post", () => {
     const titleShort = faker.lorem.word(5);
     const titleLong = faker.random.alphaNumeric(256);
     const description = faker.lorem.paragraph(10);
@@ -87,7 +87,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("article.gh-alert.gh-alert-red").should("exist");
   });
 
-  it("Como usuario administrador ingreso un titulo menor a 255 lo guardo como borrador, luego entro e ingreso un titulo de 255 caracteres e intento publicar post", () => {
+  it("E61 Como usuario administrador ingreso un titulo menor a 255 lo guardo como borrador, luego entro e ingreso un titulo de 255 caracteres e intento publicar post", () => {
     // Isue: Se genera una exepción de la aplicación en el momento de publicar el post
     const titleShort = faker.lorem.word(5);
     const titleLong = faker.random.alphaNumeric(255);
@@ -112,7 +112,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador ingreso un titulo en formato json e intento publicar post", () => {
+  it("E62 Como usuario administrador ingreso un titulo en formato json e intento publicar post", () => {
     const title = `{"prop1": ${faker.random.alphaNumeric(
       6
     )}, "prop2": ${faker.random.alphaNumeric(
@@ -136,7 +136,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador ingreso un titulo vacio y una description 10 lineas e intento publicar post", () => {
+  it("E63 Como usuario administrador ingreso un titulo vacio y una description 10 lineas e intento publicar post", () => {
     // Isue: permite publicar post sin titulo
     const description = faker.lorem.paragraph(10);
 
@@ -154,7 +154,7 @@ describe("Admin create new post", (feature = "post") => {
     //cy.get("article.gh-alert.gh-alert-red").should("exist");
   });
 
-  it("Como usuario administrador ingreso un titulo menor a 255 caracteres y una descripcion de una sola palabra mayor con mas de 255 caracteres", () => {
+  it("E64 Como usuario administrador ingreso un titulo menor a 255 caracteres y una descripcion de una sola palabra mayor con mas de 255 caracteres", () => {
     // Isue al mirar el post la palabra rompe el diseño de la aplicación
     const title = faker.lorem.sentence();
     const description = faker.random.alphaNumeric(1000);
@@ -174,7 +174,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador edito un post dejando titulo vacio y una descripcion de un parrafo", () => {
+  it("E65 Como usuario administrador edito un post dejando titulo vacio y una descripcion de un parrafo", () => {
     // Isue permite editar texto con titulo vacio
     const description = faker.lorem.paragraph();
 
@@ -196,7 +196,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("div.single-content p").should("include.text", description);
   });
 
-  it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por uno mayor a 255 caracteres ", () => {
+  it("E66 Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por uno mayor a 255 caracteres ", () => {
     // Isue permite editar texto con nombre mayor a 255 y se daña el diseño
     const name = faker.random.alphaNumeric(256);
 
@@ -213,7 +213,7 @@ describe("Admin create new post", (feature = "post") => {
     cy.get("h2.gh-canvas-title.gh-post-title").should("include.text", name);
   });
 
-  it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por un palabra menor a 255 caracteres ", () => {
+  it("E67 Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por un palabra menor a 255 caracteres ", () => {
     const name = faker.random.word();
 
     cy.visit(

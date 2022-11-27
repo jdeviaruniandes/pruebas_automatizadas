@@ -20,7 +20,7 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador creo un post con un titulo y descripción con titulo menor a 255 caracteres", () => {
+  it("E21 Como usuario administrador creo un post con un titulo y descripción con titulo menor a 255 caracteres", () => {
     const title = get_data("title");
     const description = get_data("description");
 
@@ -44,7 +44,7 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
     cy.get("h1.single-title").should("have.text", title);
   });
 
-  it("Como usuario administrador creo un post con un titulo mayor a 255 caracteres", () => {
+  it("E22 Como usuario administrador creo un post con un titulo mayor a 255 caracteres", () => {
     let title = get_data("long_text");
     title = title.slice(0, 256);
     const description = get_data("description");
@@ -60,7 +60,7 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
     cy.get("button.gh-publish-trigger").should("not.exist");
   });
 
-  it("Como usuario administrador ingreso un titulo en formato con caracteres 'naughty' e intento publicar post", () => {
+  it("E23 Como usuario administrador ingreso un titulo en formato con caracteres 'naughty' e intento publicar post", () => {
     const title = get_data("naughty");
     const description = get_data("description");
 
@@ -80,7 +80,7 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador ingreso un titulo vacio y una description 10 lineas e intento publicar post", () => {
+  it("E24 Como usuario administrador ingreso un titulo vacio y una description 10 lineas e intento publicar post", () => {
     const description = get_data("description");
 
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/posts/");
@@ -97,7 +97,7 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
     //cy.get("article.gh-alert.gh-alert-red").should("exist");
   });
 
-  it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por uno mayor a 255 caracteres ", () => {
+  it("E25 Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por uno mayor a 255 caracteres ", () => {
     let name = get_data("long_text");
     name = name.slice(0, 256);
 
@@ -114,7 +114,7 @@ describe("Validacion de datos formularios de post", (feature = "post") => {
     cy.get("h2.gh-canvas-title.gh-post-title").should("include.text", name);
   });
 
-  it("Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por un palabra menor a 255 caracteres ", () => {
+  it("E26 Como usuario administrador filtro los post por publicacados por publicos y cambio nombre a la vista por un palabra menor a 255 caracteres ", () => {
     const name = get_data("title");
 
     cy.visit(

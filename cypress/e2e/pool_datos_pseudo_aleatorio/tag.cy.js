@@ -30,7 +30,7 @@ describe("Validacion de datos formularios de tags", () => {
     cy.wait(3000);
   });
 
-  it("Como usuario administrador creo un Tag con description datos menores a 255", async () => {
+  it("E116 Como usuario administrador creo un Tag con description datos menores a 255", async () => {
     const title = await get_data("title");
     const description = await get_data("description");
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/tags");
@@ -54,7 +54,7 @@ describe("Validacion de datos formularios de tags", () => {
     cy.get("h3.gh-tag-list-name").contains(title).should("exist");
   });
 
-  it("Como usuario administrador creo un Tag con titulo igual a 192 caracteres", async () => {
+  it("E117 Como usuario administrador creo un Tag con titulo igual a 192 caracteres", async () => {
     let title = await get_data("long_text");
     title = title.slice(0, 192);
     const description = await get_data("description");
@@ -85,7 +85,7 @@ describe("Validacion de datos formularios de tags", () => {
     cy.get("h3.gh-tag-list-name").contains(title).should("not.exist");
   });
 
-  it("Como usuario administrador creo un Tag con titulo exactamente igual a 191 caracteres", async () => {
+  it("E118 Como usuario administrador creo un Tag con titulo exactamente igual a 191 caracteres", async () => {
     let title = await get_data("long_text");
     title = title.slice(0, 191);
     const description = await get_data("description");
@@ -111,7 +111,7 @@ describe("Validacion de datos formularios de tags", () => {
     cy.get("h3.gh-tag-list-name").contains(title).should("exist");
   });
 
-  it("Como usuario administrador creo un Tag con una descripcion de 500 caracteres", async () => {
+  it("E119 Como usuario administrador creo un Tag con una descripcion de 500 caracteres", async () => {
     const title = await get_data("title");
     let description = await get_data("description");
     description = description.slice(0, 500);
@@ -137,7 +137,7 @@ describe("Validacion de datos formularios de tags", () => {
     cy.get("h3.gh-tag-list-name").contains(title).should("exist");
   });
 
-  it("Como usuario administrador creo un Tag con un formato de color en Hexadecimal valido", async (feature = "tags") => {
+  it("E120 Como usuario administrador creo un Tag con un formato de color en Hexadecimal valido", async (feature = "tags") => {
     const title = await get_data("title");
     const description = await get_data("description");
     let color = await get_data("color");
