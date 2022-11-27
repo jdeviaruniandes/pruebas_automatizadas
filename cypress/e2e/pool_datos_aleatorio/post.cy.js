@@ -93,6 +93,14 @@ describe("Admin create new post", (feature = "post") => {
     const titleLong = faker.random.alphaNumeric(255);
     const description = faker.lorem.paragraph(10);
 
+    Cypress.on("uncaught:exception", (err, runnable) => {
+      console.log(
+        "Se ha generado el siguente error en la aplicación de ghost:"
+      );
+      console.log(err);
+      return false;
+    });
+
     cy.visit("http://uniandes.ingenio.com.co:2368/ghost/#/posts/");
     cy.wait(3000);
     cy.get("a.ember-view.gh-btn.gh-btn-primary.view-actions-top-row")
